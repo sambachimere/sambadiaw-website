@@ -1,113 +1,203 @@
 import Image from "next/image";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+
+import { GitHubIcon, LinkedInIcon, XIcon, MailIcon } from "@/components/icons";
+
+import logoIteru from "@/public/logos/iteru.svg";
+import logoIcea from "@/public/logos/icea.svg";
+import logoStoneRealEstate from "@/public/logos/stone-real-estate.svg";
+import logoDreamkeys from "@/public/logos/dreamkeys.svg";
+import logoMonarchAviation from "@/public/logos/monarch-aviation.svg";
+import logoEgCarrosserie from "@/public/logos/eg-carrosserie.svg";
+import logoMbs from "@/public/logos/mbs.svg";
+import logoIfdia from "@/public/logos/ifdia.svg";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="space-y-10 md:space-y-20 pb-10">
+      <Card className="w-full p-0 border-0 shadow-none bg-background">
+        <CardContent className="flex items-start space-x-6 p-0">
+          <div className="flex-1 space-y-3">
+            <Avatar className="h-24 w-24">
+              <AvatarImage alt="Samba Diaw" src="/samba.jpeg" />
+              <AvatarFallback>SD</AvatarFallback>
+            </Avatar>
+            <h2 className="text-4xl font-bold tracking-tight">Samba Diaw</h2>
+            <p className="text-2xl text-muted-foreground">Développeur</p>
+            <div className="flex items-center gap-6 pt-2">
+              <SocialLink
+                href="https://github.com/sambachimere"
+                aria-label="Follow on GitHub"
+                icon={({ className }) => (
+                  <GitHubIcon className={`dark:fill-white ${className}`} />
+                )}
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/samba-diaw-098039102/"
+                aria-label="Follow on LinkedIn"
+                icon={({ className }) => (
+                  <LinkedInIcon className={`dark:fill-white ${className}`} />
+                )}
+              />
+              <SocialLink
+                href="https://x.com/SambaDiaw_"
+                aria-label="Follow on X"
+                icon={({ className }) => (
+                  <XIcon className={`dark:fill-white ${className}`} />
+                )}
+              />
+              <SocialLink
+                href="mailto:sambachimerediaw@gmail.com"
+                aria-label="Contact by Email"
+                icon={({ className }) => (
+                  <MailIcon
+                    className={`dark:fill-none stroke-current ${className}`}
+                  />
+                )}
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      <Projects />
+    </div>
+  );
+}
+
+function SocialLink({
+  icon: Icon,
+  href,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+}) {
+  return (
+    <a href={href} target="_blank" className="group -m-1 p-1">
+      <Icon className="h-6 w-6" />
+    </a>
+  );
+}
+
+const projects = [
+  {
+    name: "Iteru",
+    description: "Agence de développement web et mobile",
+    link: { href: "https://www.iteru.agency", label: "iteru.agency" },
+    logo: logoIteru,
+  },
+  {
+    name: "ICEA",
+    description: "Entreprise de courtage en assurance",
+    link: {
+      href: "https://www.icea-assurances.fr",
+      label: "icea-assurances.fr",
+    },
+    logo: logoIcea,
+  },
+  {
+    name: "StoneRealEstate",
+    description: "Plateforme d'investissemment immobilier fractionné",
+    link: {
+      href: "https://www.stone-real-estate.fr",
+      label: "stone-real-estate.fr",
+    },
+    logo: logoStoneRealEstate,
+  },
+  {
+    name: "DreamKeys",
+    description: "Agence immobilière en ligne",
+    link: { href: "https://www.dreamkeys.com", label: "dreamkeys.com" },
+    logo: logoDreamkeys,
+  },
+  {
+    name: "Monarch Aviation",
+    description: "Entreprise spécialisée dans l'affrètement de jet privé",
+    link: {
+      href: "https://www.monarch-aviation.com",
+      label: "monarch-aviation.com",
+    },
+    logo: logoMonarchAviation,
+  },
+  {
+    name: "EG Carrosserie",
+    description:
+      "Entreprise spécialisée dans la carrosserie, la mécanique, et le vitrage de véhicules",
+    link: { href: "https://www.egcarrosserie.fr", label: "egcarrosserie.fr" },
+    logo: logoEgCarrosserie,
+  },
+  {
+    name: "MBS Services & Travaux",
+    description:
+      "Entreprise spécialisée dans les recherches de fuites et les dégorgements, la plomberie, l'assainissement, la couverture, l'étanchéité",
+    link: { href: "https://www.mbs-services.fr", label: "mbs-services.fr" },
+    logo: logoMbs,
+  },
+  {
+    name: "IFDIA",
+    description:
+      "Think tank au service de la renaissance et de l'émergence du continent africain",
+    link: { href: "https://www.ifdiafrica.org", label: "ifdiafrica.org" },
+    logo: logoIfdia,
+  },
+];
+
+function Projects() {
+  return (
+    <div className="space-y-7">
+      <h1 className="text-2xl font-semibold">Projets</h1>
+      <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-7">
+        {projects.map((project) => (
+          <Card
+            key={project.name}
+            className="border-x-0 border-t-0 border-gray-200 dark:border-[#313131] rounded-none pb-7 last:border-b-0 shadow-none border-b gap-5 flex flex-col sm:flex-row bg-background"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+            <div className="flex items-center gap-5">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 dark:bg-[#313131] shadow-md ring-1 ring-gray-200 dark:border dark:border-[#313131] dark:ring-0">
+                <Image
+                  src={project.logo}
+                  alt=""
+                  className="h-16 w-16 object-contain"
+                  unoptimized
+                />
+              </div>
+              <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 sm:hidden">
+                <a href={project.link.href} target="_blank">
+                  {project.name}
+                </a>
+              </h2>
+            </div>
+            <div>
+              <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 hidden sm:block">
+                <a href={project.link.href} target="_blank">
+                  {project.name}
+                </a>
+              </h2>
+              <p className="mt-2">{project.description}</p>
+              <a
+                href={project.link.href}
+                target="_blank"
+                className="relative z-10 mt-4 flex text-sm items-center font-medium transition"
+              >
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">{project.link.label}</span>
+              </a>
+            </div>
+          </Card>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+function LinkIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
+        fill="currentColor"
+      />
+    </svg>
   );
 }
