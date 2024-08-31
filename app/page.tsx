@@ -5,14 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { GitHubIcon, LinkedInIcon, XIcon, MailIcon } from "@/components/icons";
 
-import logoIteru from "@/public/logos/iteru.svg";
-import logoIcea from "@/public/logos/icea.svg";
-import logoStoneRealEstate from "@/public/logos/stone-real-estate.svg";
-import logoDreamkeys from "@/public/logos/dreamkeys.svg";
-import logoMonarchAviation from "@/public/logos/monarch-aviation.svg";
-import logoEgCarrosserie from "@/public/logos/eg-carrosserie.svg";
-import logoMbs from "@/public/logos/mbs.svg";
-import logoIfdia from "@/public/logos/ifdia.svg";
+import logoIteru from "@/public/logos/squaredBg/iteru.svg";
+import logoIcea from "@/public/logos/squaredBg/icea.svg";
+import logoStoneRealEstate from "@/public/logos/squaredBg/stone-real-estate.svg";
+import logoDreamkeys from "@/public/logos/squaredBg/dreamkeys.svg";
+import logoMonarchAviation from "@/public/logos/squaredBg/monarch-aviation.svg";
+import logoEgCarrosserie from "@/public/logos/squaredBg/eg-carrosserie.svg";
+import logoMbs from "@/public/logos/squaredBg/mbs.svg";
+import logoIfdia from "@/public/logos/squaredBg/ifdia.svg";
 
 export default function Home() {
   return (
@@ -136,8 +136,7 @@ const projects = [
   },
   {
     name: "IFDIA",
-    description:
-      "Think tank au service de la renaissance et de l'émergence du continent africain",
+    description: "Think tank africain",
     link: { href: "https://www.ifdiafrica.org", label: "ifdiafrica.org" },
     logo: logoIfdia,
   },
@@ -154,11 +153,11 @@ function Projects() {
             className="border-x-0 border-t-0 border-gray-200 dark:border-[#313131] rounded-none pb-7 last:border-b-0 shadow-none border-b gap-5 flex flex-col sm:flex-row bg-background"
           >
             <div className="flex items-center gap-5">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gray-200 dark:bg-[#313131] shadow-md ring-1 ring-gray-200 dark:border dark:border-[#313131] dark:ring-0">
+              <div className="relative z-10 flex h-20 w-20 items-center justify-center bg-gray-200 dark:bg-[#313131] shadow-md ring-1 ring-gray-200 dark:border dark:border-[#313131] dark:ring-0">
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-16 w-16 object-contain"
+                  className="h-18 w-18 object-contain"
                   unoptimized
                 />
               </div>
