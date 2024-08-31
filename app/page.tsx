@@ -57,6 +57,9 @@ export default function Home() {
                   />
                 )}
               />
+              <a href="https://cv.sambadiaw.com/" target="_blank">
+                CV
+              </a>
             </div>
           </div>
         </CardContent>
