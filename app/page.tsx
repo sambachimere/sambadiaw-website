@@ -35,7 +35,7 @@ export default function Home() {
                 )}
               />
               <SocialLink
-                href="https://www.linkedin.com/in/samba-diaw-098039102/"
+                href="https://www.linkedin.com/in/sambadiaw/"
                 aria-label="Follow on LinkedIn"
                 icon={({ className }) => (
                   <LinkedInIcon className={`dark:fill-white ${className}`} />
