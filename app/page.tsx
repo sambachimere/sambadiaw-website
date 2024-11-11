@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Header } from "./header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -16,55 +17,58 @@ import logoIfdia from "@/public/logos/squaredBg/ifdia.svg";
 
 export default function Home() {
   return (
-    <div className="space-y-10 md:space-y-20 pb-10">
-      <Card className="w-full p-0 border-0 shadow-none bg-background">
-        <CardContent className="flex items-start space-x-6 p-0">
-          <div className="flex-1 space-y-3">
-            <Avatar className="h-24 w-24">
-              <AvatarImage alt="Samba Diaw" src="/samba.jpeg" />
-              <AvatarFallback>SD</AvatarFallback>
-            </Avatar>
-            <h2 className="text-4xl font-bold tracking-tight">Samba Diaw</h2>
-            <p className="text-2xl text-muted-foreground">Développeur</p>
-            <div className="flex items-center gap-6 pt-2">
-              <SocialLink
-                href="https://github.com/sambachimere"
-                aria-label="Follow on GitHub"
-                icon={({ className }) => (
-                  <GitHubIcon className={`dark:fill-white ${className}`} />
-                )}
-              />
-              <SocialLink
-                href="https://www.linkedin.com/in/sambadiaw/"
-                aria-label="Follow on LinkedIn"
-                icon={({ className }) => (
-                  <LinkedInIcon className={`dark:fill-white ${className}`} />
-                )}
-              />
-              <SocialLink
-                href="https://x.com/SambaDiaw_"
-                aria-label="Follow on X"
-                icon={({ className }) => (
-                  <XIcon className={`dark:fill-white ${className}`} />
-                )}
-              />
-              <SocialLink
-                href="mailto:sambachimerediaw@gmail.com"
-                aria-label="Contact by Email"
-                icon={({ className }) => (
-                  <MailIcon
-                    className={`dark:fill-none stroke-current ${className}`}
-                  />
-                )}
-              />
-              <a href="https://cv.sambadiaw.com/" target="_blank">
-                CV
-              </a>
+    <div className="p-5 md:pt-5 min-h-screen max-w-5xl m-auto">
+      <Header />
+      <div className="space-y-10 md:space-y-20 pb-10">
+        <Card className="w-full p-0 border-0 shadow-none bg-background">
+          <CardContent className="flex items-start space-x-6 p-0">
+            <div className="flex-1 space-y-3">
+              <Avatar className="h-24 w-24">
+                <AvatarImage alt="Samba Diaw" src="/samba.jpeg" />
+                <AvatarFallback>SD</AvatarFallback>
+              </Avatar>
+              <h2 className="text-4xl font-bold tracking-tight">Samba Diaw</h2>
+              {/* <p className="text-2xl text-muted-foreground">Developer</p> */}
+              <div className="flex items-center gap-6 pt-2">
+                <SocialLink
+                  href="https://github.com/sambachimere"
+                  aria-label="Follow on GitHub"
+                  icon={({ className }) => (
+                    <GitHubIcon className={`dark:fill-white ${className}`} />
+                  )}
+                />
+                <SocialLink
+                  href="https://www.linkedin.com/in/sambadiaw/"
+                  aria-label="Follow on LinkedIn"
+                  icon={({ className }) => (
+                    <LinkedInIcon className={`dark:fill-white ${className}`} />
+                  )}
+                />
+                <SocialLink
+                  href="https://x.com/SambaDiaw_"
+                  aria-label="Follow on X"
+                  icon={({ className }) => (
+                    <XIcon className={`dark:fill-white ${className}`} />
+                  )}
+                />
+                <SocialLink
+                  href="mailto:sambachimerediaw@gmail.com"
+                  aria-label="Contact by Email"
+                  icon={({ className }) => (
+                    <MailIcon
+                      className={`dark:fill-none stroke-current ${className}`}
+                    />
+                  )}
+                />
+                <a href="https://cv.sambadiaw.com/" target="_blank">
+                  CV
+                </a>
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
-      <Projects />
+          </CardContent>
+        </Card>
+        <Projects />
+      </div>
     </div>
   );
 }

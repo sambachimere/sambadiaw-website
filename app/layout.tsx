@@ -3,7 +3,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { themeEffect } from "./theme-effect";
 import { Analytics } from "./analytics";
-import { Header } from "./header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,11 +46,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="dark:text-gray-100 max-w-5xl m-auto">
-        <main className="p-5  md:pt-5 min-h-screen">
-          <Header />
-          {children}
-        </main>
+      <body className="dark:text-gray-100 m-auto">
+        <main>{children}</main>
 
         <Analytics />
       </body>
