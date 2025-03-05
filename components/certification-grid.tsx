@@ -1,9 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
-
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 interface Certificate {
   id: number;
@@ -17,32 +15,22 @@ interface CertificateGridProps {
   certificates: Certificate[];
 }
 
-export default function CertificateGrid({
-  certificates,
-}: CertificateGridProps) {
+export function CertificateGrid({ certificates }: CertificateGridProps) {
   const router = useRouter();
 
-  // const handleCertificateClick = (certificateName: string) => {
-  //   router.push(`/certifications/${encodeURIComponent(certificateName)}`);
-  // };
+  const handleCertificateClick = (name: string) => {
+    const formattedName = name.toLowerCase().replace(/\s+/g, "-");
+    router.push(`/certifications/${formattedName}`);
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
       {certificates.map((cert) => (
-        // <Card
-        //   key={cert.id}
-        //   className="cursor-pointer hover:shadow-lg transition-shadow"
-        //   onClick={() => handleCertificateClick(cert.name)}
-        // >
-        //   <CardHeader>
-        //     <CardTitle>{cert.name}</CardTitle>
-        //   </CardHeader>
-        //   <CardContent>
-        //     <p>Issuer: {cert.issuer}</p>
-        //     <p>Date: {cert.date}</p>
-        //   </CardContent>
-        // </Card>
-        <div key={cert.id}>
+        <div
+          key={cert.id}
+          onClick={() => handleCertificateClick(cert.name)}
+          className="cursor-pointer transition-transform hover:scale-[1.02]"
+        >
           <Image
             src={cert.image}
             alt={cert.name}

@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 import { GitHubIcon, LinkedInIcon, XIcon, MailIcon } from "@/components/icons";
 
+import logoAnensaa from "@/public/logos/squaredBg/anensaa.svg";
 import logoIteru from "@/public/logos/squaredBg/iteru.svg";
 import logoIcea from "@/public/logos/squaredBg/icea.svg";
 import logoStoneRealEstate from "@/public/logos/squaredBg/stone-real-estate.svg";
@@ -89,64 +90,70 @@ function SocialLink({
 
 const projects = [
   {
+    name: "Anensaa",
+    description: "",
+    link: { href: "https://www.anensaa.com/", label: "anensaa.com" },
+    logo: logoAnensaa,
+  },
+  {
     name: "Iteru",
     description: "Agence de développement web et mobile",
     link: { href: "https://www.iteru.agency", label: "iteru.agency" },
     logo: logoIteru,
   },
-  {
-    name: "ICEA",
-    description: "Entreprise de courtage en assurance",
-    link: {
-      href: "https://www.icea-assurances.fr",
-      label: "icea-assurances.fr",
-    },
-    logo: logoIcea,
-  },
-  {
-    name: "StoneRealEstate",
-    description: "Plateforme d'investissemment immobilier fractionné",
-    link: {
-      href: "https://www.stone-real-estate.fr",
-      label: "stone-real-estate.fr",
-    },
-    logo: logoStoneRealEstate,
-  },
-  {
-    name: "DreamKeys",
-    description: "Agence immobilière en ligne",
-    link: { href: "https://www.dreamkeys.com", label: "dreamkeys.com" },
-    logo: logoDreamkeys,
-  },
-  {
-    name: "Monarch Aviation",
-    description: "Entreprise spécialisée dans l'affrètement de jet privé",
-    link: {
-      href: "https://www.monarch-aviation.com",
-      label: "monarch-aviation.com",
-    },
-    logo: logoMonarchAviation,
-  },
-  {
-    name: "EG Carrosserie",
-    description:
-      "Entreprise spécialisée dans la carrosserie, la mécanique, et le vitrage de véhicules",
-    link: { href: "https://www.egcarrosserie.fr", label: "egcarrosserie.fr" },
-    logo: logoEgCarrosserie,
-  },
-  {
-    name: "MBS Services & Travaux",
-    description:
-      "Entreprise spécialisée dans les recherches de fuites et les dégorgements, la plomberie, l'assainissement, la couverture, l'étanchéité",
-    link: { href: "https://www.mbs-services.fr", label: "mbs-services.fr" },
-    logo: logoMbs,
-  },
-  {
-    name: "IFDIA",
-    description: "Think tank africain",
-    link: { href: "https://www.ifdiafrica.org", label: "ifdiafrica.org" },
-    logo: logoIfdia,
-  },
+  // {
+  //   name: "ICEA",
+  //   description: "Entreprise de courtage en assurance",
+  //   link: {
+  //     href: "https://www.icea-assurances.fr",
+  //     label: "icea-assurances.fr",
+  //   },
+  //   logo: logoIcea,
+  // },
+  // {
+  //   name: "StoneRealEstate",
+  //   description: "Plateforme d'investissemment immobilier fractionné",
+  //   link: {
+  //     href: "https://www.stone-real-estate.fr",
+  //     label: "stone-real-estate.fr",
+  //   },
+  //   logo: logoStoneRealEstate,
+  // },
+  // {
+  //   name: "DreamKeys",
+  //   description: "Agence immobilière en ligne",
+  //   link: { href: "https://www.dreamkeys.com", label: "dreamkeys.com" },
+  //   logo: logoDreamkeys,
+  // },
+  // {
+  //   name: "Monarch Aviation",
+  //   description: "Entreprise spécialisée dans l'affrètement de jet privé",
+  //   link: {
+  //     href: "https://www.monarch-aviation.com",
+  //     label: "monarch-aviation.com",
+  //   },
+  //   logo: logoMonarchAviation,
+  // },
+  // {
+  //   name: "EG Carrosserie",
+  //   description:
+  //     "Entreprise spécialisée dans la carrosserie, la mécanique, et le vitrage de véhicules",
+  //   link: { href: "https://www.egcarrosserie.fr", label: "egcarrosserie.fr" },
+  //   logo: logoEgCarrosserie,
+  // },
+  // {
+  //   name: "MBS Services & Travaux",
+  //   description:
+  //     "Entreprise spécialisée dans les recherches de fuites et les dégorgements, la plomberie, l'assainissement, la couverture, l'étanchéité",
+  //   link: { href: "https://www.mbs-services.fr", label: "mbs-services.fr" },
+  //   logo: logoMbs,
+  // },
+  // {
+  //   name: "IFDIA",
+  //   description: "Think tank africain",
+  //   link: { href: "https://www.ifdiafrica.org", label: "ifdiafrica.org" },
+  //   logo: logoIfdia,
+  // },
 ];
 
 function Projects() {
@@ -155,42 +162,38 @@ function Projects() {
       <h1 className="text-2xl font-semibold">Projets</h1>
       <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-7">
         {projects.map((project) => (
-          <Card
+          <a
             key={project.name}
-            className="border-x-0 border-t-0 border-gray-200 dark:border-[#313131] rounded-none pb-7 last:border-b-0 shadow-none border-b gap-5 flex flex-col sm:flex-row bg-background"
+            href={project.link.href}
+            target="_blank"
+            className="block group border-b border-gray-200 dark:border-[#313131] last:border-b-0"
           >
-            <div className="flex items-center gap-5">
-              <div className="relative z-10 flex h-20 w-20 items-center justify-center bg-gray-200 dark:bg-[#313131] shadow-md ring-1 ring-gray-200 dark:border dark:border-[#313131] dark:ring-0">
-                <Image
-                  src={project.logo}
-                  alt=""
-                  className="h-18 w-18 object-contain"
-                  unoptimized
-                />
+            <Card className="border-0 sm:items-center rounded-none pb-7 shadow-none gap-5 flex flex-col sm:flex-row bg-background">
+              <div className="flex items-center gap-5">
+                <div className="relative z-10 flex h-20 w-20 items-center justify-center bg-gray-200 dark:bg-[#313131] shadow-md ring-1 ring-gray-200 dark:border dark:border-[#313131] dark:ring-0">
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    className="h-18 w-18 object-contain"
+                    unoptimized
+                  />
+                </div>
+                <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 sm:hidden">
+                  {project.name}
+                </h2>
               </div>
-              <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 sm:hidden">
-                <a href={project.link.href} target="_blank">
+              <div>
+                <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 hidden sm:block">
                   {project.name}
-                </a>
-              </h2>
-            </div>
-            <div>
-              <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 hidden sm:block">
-                <a href={project.link.href} target="_blank">
-                  {project.name}
-                </a>
-              </h2>
-              <p className="mt-2">{project.description}</p>
-              <a
-                href={project.link.href}
-                target="_blank"
-                className="relative z-10 mt-4 flex text-sm items-center font-medium transition"
-              >
-                <LinkIcon className="h-6 w-6 flex-none" />
-                <span className="ml-2">{project.link.label}</span>
-              </a>
-            </div>
-          </Card>
+                </h2>
+                <p className="mt-2">{project.description}</p>
+                <div className="relative z-10 mt-4 flex text-sm items-center font-medium transition">
+                  <LinkIcon className="h-6 w-6 flex-none" />
+                  <span className="ml-2">{project.link.label}</span>
+                </div>
+              </div>
+            </Card>
+          </a>
         ))}
       </ul>
     </div>
