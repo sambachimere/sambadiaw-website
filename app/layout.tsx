@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Samba Diaw",
-  description: "Samba Diaw is a developer.",
+  // description: "I am a developer",
   openGraph: {
     title: "Samba Diaw",
-    description: "Samba Diaw is a developer.",
+    // description: "I am a developer",
     url: "https://sambadiaw.com",
     siteName: "Samba Diaw",
   },
