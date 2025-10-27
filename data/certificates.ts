@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 
+import TheLLMCourse from "@/public/certifications/the-llm-course-hugging-face-certification.webp";
 import FundamentalsOfAgents from "@/public/certifications/fundamental-of-agents-hugging-face-certification.webp";
 import ProjectManagement from "@/public/certifications/project-management-google-certification.png";
 import EthBlockchainDeveloper from "@/public/certifications/eth-blockchain-developer-consensys-certification.png";
@@ -18,12 +19,19 @@ export interface Certificate {
 }
 
 export const certificates: Certificate[] = [
+  // {
+  //   id: 0,
+  //   name: "Fundamentals of Agents",
+  //   issuer: "Hugging Face",
+  //   date: "2025-02-25",
+  //   image: FundamentalsOfAgents,
+  // },
   {
     id: 0,
-    name: "Fundamentals of Agents",
+    name: "The LLM Course",
     issuer: "Hugging Face",
-    date: "2025-02-25",
-    image: FundamentalsOfAgents,
+    date: "2025-08-18",
+    image: TheLLMCourse,
   },
   {
     id: 1,

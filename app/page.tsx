@@ -32,10 +32,10 @@ export default function Home() {
               {/* <p className="text-2xl text-muted-foreground">Developer</p> */}
               <div className="flex items-center gap-6 pt-2">
                 <SocialLink
-                  href="https://github.com/sambachimere"
-                  aria-label="Follow on GitHub"
+                  href="https://x.com/SambaDiaw_"
+                  aria-label="Follow on X"
                   icon={({ className }) => (
-                    <GitHubIcon className={`dark:fill-white ${className}`} />
+                    <XIcon className={`dark:fill-white ${className}`} />
                   )}
                 />
                 <SocialLink
@@ -46,12 +46,13 @@ export default function Home() {
                   )}
                 />
                 <SocialLink
-                  href="https://x.com/SambaDiaw_"
-                  aria-label="Follow on X"
+                  href="https://github.com/sambachimere"
+                  aria-label="Follow on GitHub"
                   icon={({ className }) => (
-                    <XIcon className={`dark:fill-white ${className}`} />
+                    <GitHubIcon className={`dark:fill-white ${className}`} />
                   )}
                 />
+
                 <SocialLink
                   href="mailto:sambachimerediaw@gmail.com"
                   aria-label="Contact by Email"
@@ -61,9 +62,9 @@ export default function Home() {
                     />
                   )}
                 />
-                <a href="https://cv.sambadiaw.com/" target="_blank">
+                {/*<a href="https://cv.sambadiaw.com/" target="_blank">
                   CV
-                </a>
+                </a>*/}
               </div>
             </div>
           </CardContent>
